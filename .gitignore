@@ -1,0 +1,5 @@
+/.vscode
+*.pyc
+/zip_deployer/__pycache__
+/docs/__pycache__
+/docs_build
