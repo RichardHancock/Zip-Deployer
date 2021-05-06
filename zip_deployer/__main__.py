@@ -18,7 +18,7 @@ if __name__ == '__main__':
         clear_folder,
         delete_zip
     ) = cli.handle_cli()
-    
+
     zd.zip_deployer(
         dest_path,
         zip_file,
