@@ -33,7 +33,8 @@ def zip_deployer(dest_path, zip_file, clear_folder, delete_zip):
 
     if not os.path.isfile(zip_file):
         LOGGER.error(
-            "Passed in zip_file is not a valid path to a file", zip_file
+            "Passed in zip_file is not a valid path to a file",
+            zip_file
         )
         return
 
@@ -44,8 +45,12 @@ def zip_deployer(dest_path, zip_file, clear_folder, delete_zip):
     try:
         extract_zip(zip_file, dest_path)
     except BadZipFile as e:
-        LOGGER.error("""zip_file could not be opened, make sure its a .zip file
-         and unencrypted: """, e)
+        LOGGER.error(
+            "zip_file could not be opened, make sure its a .zip file "
+            "and unencrypted: ",
+            e
+        )
+        return
 
     if delete_zip:
         LOGGER.info("Deleting Zip File")

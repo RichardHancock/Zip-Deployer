@@ -28,8 +28,7 @@ def handle_cli():
     )
 
     parser.add_argument(
-        "dest-path",
-        required=True,
+        "dest_path",
         help="Where the zip should be extracted to"
     )
 
@@ -43,7 +42,7 @@ def handle_cli():
     parser.add_argument(
         "--no-clear",
         action="store_true",
-        help="Do not clear the dest directory of files"
+        help="Do not clear the dest directory of files before extraction"
     )
 
     parser.add_argument(
@@ -57,7 +56,7 @@ def handle_cli():
     if args.debug:
         logging.root.setLevel(logging.DEBUG)
     dest_path = args.dest_path
-    zip_file = args.zip_file
+    zip_file = args.zip
     clear_folder = not args.no_clear
     delete_zip = args.delete_zip
 

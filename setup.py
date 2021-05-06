@@ -1,8 +1,10 @@
 import setuptools
 
-__version__ = "0.0.0" # Stops missing variable errors, gets overwritten by next call
-exec(compile(open("zip_deployer/version.py").read(),
-    "zip_deployer/version.py", "exec"))
+__version__ = "0.0.0"  # Stops errors, gets overwritten by next call
+exec(compile(open(
+    "zip_deployer/version.py").read(),
+    "zip_deployer/version.py", "exec")
+)
 
 with open("README.md", "r") as readme:
     long_description = readme.read()
@@ -10,7 +12,7 @@ with open("README.md", "r") as readme:
 setuptools.setup(
     name="zip_deployer",
     version=__version__,
-    author="Richard Slowgrove",
+    author="Richard Hancock",
     author_email="git@richardh.dev",
     description="Zip Deployer",
     long_description=long_description,
