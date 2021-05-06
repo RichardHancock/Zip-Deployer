@@ -54,5 +54,11 @@ def zip_deployer(dest_path, zip_file, clear_folder, delete_zip):
 
     if delete_zip:
         LOGGER.info("Deleting Zip File")
-        p = Path(zip_file)
-        p.unlink(True)
+        try:
+            p = Path(zip_file)
+            p.unlink()
+        except FileNotFoundError as e:
+            LOGGER.error(
+                "Could not find zip_file to delete, Shouldn't ever happen",
+                e
+            )
