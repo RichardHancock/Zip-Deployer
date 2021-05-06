@@ -12,6 +12,5 @@ logging.basicConfig(
 
 if __name__ == '__main__':
     # execute only if run as the entry point into the program
-    cli.handle_cli()
 
-    zd.zip_deployer()
+    zd.zip_deployer(cli.handle_cli())

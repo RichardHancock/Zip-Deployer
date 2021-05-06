@@ -46,4 +46,3 @@ docs:
   artifacts:
     paths:
       - docs_build
-    expire_in: 1 week
