@@ -26,7 +26,7 @@ copyright = '2021, Richard Hancock'
 author = 'Richard Hancock'
 
 """The full version, including alpha/beta/rc tags."""
-from simple_python_cbz_viewer.version import __version__
+from zip_deployer.version import __version__
 version = 'v{version}'.format(
     version=__version__
 )
