@@ -24,7 +24,13 @@ def extract_zip(zip_file, dest_path):
         zip.extractall(dest_path)
 
 
-def zip_deployer(dest_path, zip_file, clear_folder = False, delete_zip = False):
+def zip_deployer(
+    dest_path,
+    zip_file,
+    clear_folder=False,
+    delete_zip=False
+    ):
+
     LOGGER.debug("Debug flag is on! Outputting debug information.")
 
     if not os.path.isdir(dest_path):
