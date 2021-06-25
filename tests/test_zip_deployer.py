@@ -6,7 +6,7 @@ from zipfile import ZipFile
 import pytest
 from zip_deployer.zip_deployer import zip_deployer
 
-#Test data
+# Test data
 test_files = [
     "content.txt",
     "folder/sub_content.txt"
@@ -19,7 +19,7 @@ TEST_CONTENT = "Test Content"
 def create_test_zip(scope="function"):
     with TemporaryDirectory() as path:
         print("Creating Test Files")
-        
+
         zip_path = os.path.join(path, "test.zip")
         with ZipFile(zip_path, mode="w") as zip:
             for file in test_files:
@@ -31,6 +31,7 @@ def create_test_zip(scope="function"):
 
         yield collections.namedtuple("Paths", "zip dest")(zip_path, dest_path)
 
+
 def compare_test_files(path):
     # Check test path exists (If this fails it's probably a test setup issue)
     assert os.path.exists(path), "Test Path: {0} doesn't exist".format(path)
@@ -39,6 +40,7 @@ def compare_test_files(path):
         assert os.path.isfile(os.path.join(path, file)),\
             "Test File: {0} was not found after zip extraction".format(file)
 
+
 def test_zip_deployer_normal(create_test_zip):
     zip_deployer(
         create_test_zip.dest,
@@ -46,6 +48,7 @@ def test_zip_deployer_normal(create_test_zip):
         )
 
     compare_test_files(create_test_zip.dest)
+
 
 def test_zip_deployer_non_existant_dir(create_test_zip):
     dest_path = os.path.join(create_test_zip.dest, "new_folder")

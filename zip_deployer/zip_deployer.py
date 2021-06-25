@@ -29,7 +29,7 @@ def zip_deployer(
     zip_file,
     clear_folder=False,
     delete_zip=False
-    ):
+        ):
 
     LOGGER.debug("Debug flag is on! Outputting debug information.")
 
