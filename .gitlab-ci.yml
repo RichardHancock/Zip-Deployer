@@ -28,18 +28,18 @@ flake8:
   script:
   - flake8 --exclude venv zip_deployer #tests
 
-#pytest:
-#  stage: test
-#  before_script:
-#  - export PYTHONPATH="$PYTHONPATH:." #Needed to get tests to find main module
-#  - python -c "import sys;print(sys.path)"
-#  - pip install pytest
-#  script:
-#    - pytest --junitxml=report.xml
-#  artifacts:
-#    when: always
-#    reports:
-#      junit: report.xml
+pytest:
+  stage: test
+  before_script:
+  - export PYTHONPATH="$PYTHONPATH:." #Needed to get tests to find main module
+  - python -c "import sys;print(sys.path)"
+  - pip install pytest
+  script:
+    - pytest --junitxml=report.xml
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
 
 
 package:

@@ -24,12 +24,15 @@ def extract_zip(zip_file, dest_path):
         zip.extractall(dest_path)
 
 
-def zip_deployer(dest_path, zip_file, clear_folder, delete_zip):
+def zip_deployer(dest_path, zip_file, clear_folder = False, delete_zip = False):
     LOGGER.debug("Debug flag is on! Outputting debug information.")
 
     if not os.path.isdir(dest_path):
-        LOGGER.error("dest_path is not a valid path", dest_path)
-        return
+        try:
+            os.makedirs(dest_path, exist_ok=True)
+        except Exception as e:
+            LOGGER.error("""dest_path is not a valid path or could not be
+            created""", dest_path, e)
 
     if not os.path.isfile(zip_file):
         LOGGER.error(
